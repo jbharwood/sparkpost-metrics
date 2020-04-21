@@ -1,0 +1,147 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :template_version %>
+    <%= form.number_field :template_version %>
+  </div>
+
+  <div class="field">
+    <%= form.label :friendly_from %>
+    <%= form.text_field :friendly_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject %>
+    <%= form.text_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ip_pool %>
+    <%= form.text_field :ip_pool %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sending_domain %>
+    <%= form.text_field :sending_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rcpt_tags %>
+    <%= form.text_field :rcpt_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :raw_rcpt_to %>
+    <%= form.text_field :raw_rcpt_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :msg_from %>
+    <%= form.text_field :msg_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rcpt_to %>
+    <%= form.text_field :rcpt_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :report_to %>
+    <%= form.text_field :report_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transmission_id %>
+    <%= form.number_field :transmission_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fbtype %>
+    <%= form.text_field :fbtype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rcpt_meta %>
+    <%= form.text_field :rcpt_meta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message_id %>
+    <%= form.text_field :message_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recipient_domain %>
+    <%= form.text_field :recipient_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :report_by %>
+    <%= form.text_field :report_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= form.number_field :event_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :routing_domain %>
+    <%= form.text_field :routing_domain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sending_ip %>
+    <%= form.text_field :sending_ip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :template_id %>
+    <%= form.text_field :template_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delv_method %>
+    <%= form.text_field :delv_method %>
+  </div>
+
+  <div class="field">
+    <%= form.label :injection_time %>
+    <%= form.datetime_select :injection_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :msg_size %>
+    <%= form.number_field :msg_size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timestamp %>
+    <%= form.datetime_select :timestamp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :formattedDate %>
+    <%= form.datetime_select :formattedDate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

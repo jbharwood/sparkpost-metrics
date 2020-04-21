@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Template version</th>
+      <th>Friendly from</th>
+      <th>Subject</th>
+      <th>Ip pool</th>
+      <th>Sending domain</th>
+      <th>Rcpt tags</th>
+      <th>Type</th>
+      <th>Raw rcpt to</th>
+      <th>Msg from</th>
+      <th>Rcpt to</th>
+      <th>Report to</th>
+      <th>Transmission</th>
+      <th>Fbtype</th>
+      <th>Rcpt meta</th>
+      <th>Message</th>
+      <th>Recipient domain</th>
+      <th>Report by</th>
+      <th>Event</th>
+      <th>Routing domain</th>
+      <th>Sending ip</th>
+      <th>Template</th>
+      <th>Delv method</th>
+      <th>Injection time</th>
+      <th>Msg size</th>
+      <th>Timestamp</th>
+      <th>Formatteddate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.template_version %></td>
+        <td><%= event.friendly_from %></td>
+        <td><%= event.subject %></td>
+        <td><%= event.ip_pool %></td>
+        <td><%= event.sending_domain %></td>
+        <td><%= event.rcpt_tags %></td>
+        <td><%= event.type %></td>
+        <td><%= event.raw_rcpt_to %></td>
+        <td><%= event.msg_from %></td>
+        <td><%= event.rcpt_to %></td>
+        <td><%= event.report_to %></td>
+        <td><%= event.transmission_id %></td>
+        <td><%= event.fbtype %></td>
+        <td><%= event.rcpt_meta %></td>
+        <td><%= event.message_id %></td>
+        <td><%= event.recipient_domain %></td>
+        <td><%= event.report_by %></td>
+        <td><%= event.event_id %></td>
+        <td><%= event.routing_domain %></td>
+        <td><%= event.sending_ip %></td>
+        <td><%= event.template_id %></td>
+        <td><%= event.delv_method %></td>
+        <td><%= event.injection_time %></td>
+        <td><%= event.msg_size %></td>
+        <td><%= event.timestamp %></td>
+        <td><%= event.formattedDate %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
