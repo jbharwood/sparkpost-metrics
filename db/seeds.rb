@@ -6,12 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'simple_spark'
-# require 'pry'
-# require 'json'
 
-# rm = RestClient.get ''
-
-# Event.delete_all
+Event.delete_all
 
 current_date = Time.now
 past_date = current_date - (3600 * 168)
@@ -28,9 +24,9 @@ results = simple_spark.events.search(
   events: 'spam_complaint,list_unsubscribe,link_unsubscribe'
 )
 
+event = {}
 
 results.each do |result|
-  event = {}
   event["template_version"] = result["template_version"]
   event["friendly_from"] = result["friendly_from"]
   event["subject"] = result["subject"]
