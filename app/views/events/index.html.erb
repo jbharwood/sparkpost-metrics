@@ -30,7 +30,6 @@
       <th>Injection time</th>
       <th>Msg size</th>
       <th>Timestamp</th>
-      <th>Formatteddate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -44,7 +43,7 @@
         <td><%= event.ip_pool %></td>
         <td><%= event.sending_domain %></td>
         <td><%= event.rcpt_tags %></td>
-        <td><%= event.type %></td>
+        <td><%= event.event_type %></td>
         <td><%= event.raw_rcpt_to %></td>
         <td><%= event.msg_from %></td>
         <td><%= event.rcpt_to %></td>
@@ -63,7 +62,6 @@
         <td><%= event.injection_time %></td>
         <td><%= event.msg_size %></td>
         <td><%= event.timestamp %></td>
-        <td><%= event.formattedDate %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

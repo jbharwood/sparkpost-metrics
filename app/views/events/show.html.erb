@@ -32,7 +32,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @event.type %>
+  <%= @event.event_type %>
 </p>
 
 <p>
@@ -123,11 +123,6 @@
 <p>
   <strong>Timestamp:</strong>
   <%= @event.timestamp %>
-</p>
-
-<p>
-  <strong>Formatteddate:</strong>
-  <%= @event.formattedDate %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

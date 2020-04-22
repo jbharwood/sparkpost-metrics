@@ -17,6 +17,38 @@ results = simple_spark.events.search(
   per_page: 10000,
   events: 'spam_complaint,list_unsubscribe,link_unsubscribe'
 )
+
+event = {}
+
+results.each do |result|
+  event["template_version"] = result["template_version"]
+  event["friendly_from"] = result["friendly_from"]
+  event["subject"] = result["subject"]
+  event["ip_pool"] = result["ip_pool"]
+  event["sending_domain"] = result["sending_domain"]
+  event["rcpt_tags"]= result["rcpt_tags"]
+  event["event_type"] = result["type"]
+  event["raw_rcpt_to"] = result["raw_rcpt_to"]
+  event["msg_from"] = result["msg_from"]
+  event["rcpt_to"] = result["rcpt_to"]
+  event["report_to"] = result["report_to"]
+  event["transmission_id"] = result["transmission_id"]
+  event["fbtype"] = result["fbtype"]
+  event["rcpt_meta"] = result["rcpt_meta"]
+  event["message_id"] = result["message_id"]
+  event["recipient_domain"] = result["recipient_domain"]
+  event["report_by"] = result["report_by"]
+  event["event_id"] = result["event_id"]
+  event["routing_domain"] = result["routing_domain"]
+  event["template_id"] = result["template_id"]
+  event["delv_method"] = result["delv_method"]
+  event["injection_time"] = result["injection_time"]
+  event["msg_size"] = result["msg_size"]
+  event["timestamp"] = result["timestamp"]
+  binding.pry
+end
+
+
 #
 # template_version:integer friendly_from:string subject:string ip_pool:string sending_domain:string rcpt_tags:array type:string raw_rcpt_to:string msg_from:string rcpt_to:string report_to:string transmission_id:integer fbtype:string rcpt_meta:hstore message_id:string recipient_domain:string report_by:string:string event_id:integer routing_domain:string sending_ip:float template_id:string
 # delv_method:string injection_time:timestamp msg_size:integer timestamp:timestamp formattedDate:datetime
@@ -49,7 +81,6 @@ results = simple_spark.events.search(
 # timestamp
 # formattedDate
 
-binding.pry
 
 # # Creates a session. This will prompt the credential via command line for the
 # # first time and save it to config.json file for later usages.

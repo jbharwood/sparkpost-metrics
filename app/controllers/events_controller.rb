@@ -69,6 +69,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:template_version, :friendly_from, :subject, :ip_pool, :sending_domain, :rcpt_tags, :type, :raw_rcpt_to, :msg_from, :rcpt_to, :report_to, :transmission_id, :fbtype, :rcpt_meta, :message_id, :recipient_domain, :report_by, :event_id, :routing_domain, :sending_ip, :template_id, :delv_method, :injection_time, :msg_size, :timestamp, :formattedDate)
+      params.require(:event).permit(:template_version, :friendly_from, :subject, :ip_pool, :sending_domain, :rcpt_tags, :email_type, :raw_rcpt_to, :msg_from, :rcpt_to, :report_to, :transmission_id, :fbtype, :rcpt_meta, :message_id, :recipient_domain, :report_by, :event_id, :routing_domain, :sending_ip, :template_id, :delv_method, :injection_time, :msg_size, :timestamp)
     end
 end
