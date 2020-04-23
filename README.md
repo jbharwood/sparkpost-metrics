@@ -1,24 +1,20 @@
-# README
+## SparkPost Metrics
+Created by Joseph Harwood
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description:
 
-Things you may want to cover:
+This application pulls Events metrics from the SparkPost API.
 
-* Ruby version
+## Instructions
+1) In order to run this, within the root directory make sure to install
+dependencies by opening the terminal and typing the following:
 
-* System dependencies
+  `bundle install`
 
-* Configuration
+2) Start the application:
 
-* Database creation
+  `rails s`
 
-* Database initialization
+3) View the events at:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  `http://localhost:3000/events`
