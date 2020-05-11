@@ -2,48 +2,70 @@ require 'simple_spark'
 require 'pry'
 require 'json'
 require "google_drive"
+# require 'axlsx_rails'
+require 'axlsx'
+require 'nppes_api_v2'
 
-current_date = Time.now
-past_date = current_date - (3600 * 168)
+# current_date = Time.now
+# past_date = current_date - (3600 * 168)
+#
+# formatted_current_date = current_date.iso8601
+# formatted_past_date = past_date.iso8601
+#
+# simple_spark = SimpleSpark::Client.new(api_key: '712f2abc9cf6e9160f0a5820b8b9630ad6040c95')
+# results = simple_spark.events.search(
+#   sending_domain: 'mail.allmedx.com',
+#   from: formatted_past_date,
+#   to: formatted_current_date,
+#   per_page: 10000,
+#   events: 'spam_complaint,list_unsubscribe,link_unsubscribe'
+# )
+#
+# event = {}
+#
+# results.each do |result|
+#   event["template_version"] = result["template_version"]
+#   event["friendly_from"] = result["friendly_from"]
+#   event["subject"] = result["subject"]
+#   event["ip_pool"] = result["ip_pool"]
+#   event["sending_domain"] = result["sending_domain"]
+#   event["rcpt_tags"]= result["rcpt_tags"]
+#   event["event_type"] = result["type"]
+#   event["raw_rcpt_to"] = result["raw_rcpt_to"]
+#   event["msg_from"] = result["msg_from"]
+#   event["rcpt_to"] = result["rcpt_to"]
+#   event["transmission_id"] = result["transmission_id"]
+#   event["rcpt_meta"] = result["rcpt_meta"]
+#   event["message_id"] = result["message_id"]
+#   event["recipient_domain"] = result["recipient_domain"]
+#   event["event_id"] = result["event_id"]
+#   event["routing_domain"] = result["routing_domain"]
+#   event["sending_ip"] = result["sending_ip"]
+#   event["template_id"] = result["template_id"]
+#   event["injection_time"] = result["injection_time"]
+#   event["msg_size"] = result["msg_size"]
+#   event["timestamp"] = result["timestamp"]
+# end
 
-formatted_current_date = current_date.iso8601
-formatted_past_date = past_date.iso8601
+banks = NPPESApi.search(number: 1932494937)
+# NPPESApi.search(number: 1932494937).results.first.taxonomies.first.state
+binding.pry
 
-simple_spark = SimpleSpark::Client.new(api_key: '712f2abc9cf6e9160f0a5820b8b9630ad6040c95')
-results = simple_spark.events.search(
-  sending_domain: 'mail.allmedx.com',
-  from: formatted_past_date,
-  to: formatted_current_date,
-  per_page: 10000,
-  events: 'spam_complaint,list_unsubscribe,link_unsubscribe'
-)
-
-event = {}
-
-results.each do |result|
-  event["template_version"] = result["template_version"]
-  event["friendly_from"] = result["friendly_from"]
-  event["subject"] = result["subject"]
-  event["ip_pool"] = result["ip_pool"]
-  event["sending_domain"] = result["sending_domain"]
-  event["rcpt_tags"]= result["rcpt_tags"]
-  event["event_type"] = result["type"]
-  event["raw_rcpt_to"] = result["raw_rcpt_to"]
-  event["msg_from"] = result["msg_from"]
-  event["rcpt_to"] = result["rcpt_to"]
-  event["transmission_id"] = result["transmission_id"]
-  event["rcpt_meta"] = result["rcpt_meta"]
-  event["message_id"] = result["message_id"]
-  event["recipient_domain"] = result["recipient_domain"]
-  event["event_id"] = result["event_id"]
-  event["routing_domain"] = result["routing_domain"]
-  event["sending_ip"] = result["sending_ip"]
-  event["template_id"] = result["template_id"]
-  event["injection_time"] = result["injection_time"]
-  event["msg_size"] = result["msg_size"]
-  event["timestamp"] = result["timestamp"]
-  binding.pry
-end
+# p = Axlsx::Package.new
+# wb = p.workbook
+# # wb = xlsx_package.workbook
+# wb.add_worksheet(name: "Events") do |sheet|
+#   # this is the head row of your spreadsheet
+#   sheet.add_row %w(id name email)
+#
+#   # each user is a row on your spreadsheet
+#   results.each do |result|
+#     sheet.add_row [result]
+#     # sheet.add_row [user.id, user.name, user.email]
+#   end
+# end
+#
+# wb.serialize('./Spreadsheets')
 
 
 #

@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'simple_spark'
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+gem 'axlsx_rails'
+# gem 'nppes_api'
+gem 'nppes_api_v2', '~> 0.1.1'
+# gem 'nppes_api', :path => "../nppes_api"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
