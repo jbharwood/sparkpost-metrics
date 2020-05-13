@@ -25,9 +25,9 @@ gem 'simple_spark'
 gem 'rubyzip', '= 1.0.0'
 gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
-# gem 'nppes_api'
-gem 'nppes_api_v2', '~> 0.1.1'
-# gem 'nppes_api', :path => "../nppes_api"
+# gem 'nppes_api_v2', '~> 0.1.1'
+# gem 'nppes_api', '~> 0.1.1'
+# gem 'nppes_api', :path => "../nofork/nppes_api"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
