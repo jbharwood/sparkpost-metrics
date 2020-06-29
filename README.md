@@ -54,8 +54,6 @@ dependencies by opening the terminal and typing the following:
 
 6) Template for email:
 
-Hi Kathleen,
-
 Here are the Unsubscribe and Complaints metrics:
 -Insert link to Google Sheets spreadsheet-
 
