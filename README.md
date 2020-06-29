@@ -58,5 +58,3 @@ Here are the Unsubscribe and Complaints metrics:
 -Insert link to Google Sheets spreadsheet-
 
 On the far right of the Data sheet you can see the unique email recipients for each day. There are Summary and Subject Count sheets. Each day has a breakdown of unsubscribes and complaints by subject and timestamp.
-
-Please let me know if you have any questions.
