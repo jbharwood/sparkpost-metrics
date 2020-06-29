@@ -47,7 +47,9 @@ dependencies by opening the terminal and typing the following:
 
 5) Things to change in Google Sheets:
 
-  `Every pivot table needs the Values event type column to be changed to Summarize By changed from SUM to COUNTA. Every date sheet has 2 pivot tables that needs to be filtered by MM/DD for the timestamp. Duplicate the sheets and change the filter to a different day. Update the Summary sheet with high numbers from the pivot tables.`
+  Every pivot table needs the Values event type column to be changed to Summarize By changed from SUM to COUNTA.
+  Every date sheet has 2 pivot tables that needs to be filtered by MM/DD for the timestamp. Duplicate the sheets and change the filter to a different day.
+  Update the Summary sheet with high numbers from the pivot tables.
 
 
 6) View the events at:
