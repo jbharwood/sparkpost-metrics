@@ -43,18 +43,8 @@ dependencies by opening the terminal and typing the following:
 
 3) Import the CSV from the Spreadsheets folder into Google Sheets
 
-4) Modify the Google Sheet to look like this: https://docs.google.com/spreadsheets/d/1oYrHrB951nj-CyTaRbN3AdgQ0MvHLcN0vNVyD0qv20o/edit?usp=sharing
-
-5) Things to change in Google Sheets:
+4) Things to change in Google Sheets:
 
   Every pivot table needs the Values event type column to be changed to Summarize By changed from SUM to COUNTA.
   Every date sheet has 2 pivot tables that needs to be filtered by MM/DD for the timestamp. Duplicate the sheets and change the filter to a different day.
   Update the Summary sheet with high numbers from the pivot tables.
-
-
-6) Template for email:
-
-Here are the Unsubscribe and Complaints metrics:
--Insert link to Google Sheets spreadsheet-
-
-On the far right of the Data sheet you can see the unique email recipients for each day. There are Summary and Subject Count sheets. Each day has a breakdown of unsubscribes and complaints by subject and timestamp.
