@@ -15,6 +15,7 @@ past_date = current_date - (3600 * 168)
 formatted_current_date = current_date.iso8601
 formatted_past_date = past_date.iso8601
 
+# gets the SparkPost events for a week
 simple_spark = SimpleSpark::Client.new(api_key: '712f2abc9cf6e9160f0a5820b8b9630ad6040c95')
 results = simple_spark.events.search(
   sending_domain: 'mail.allmedx.com',
@@ -26,6 +27,8 @@ results = simple_spark.events.search(
 
 event = {}
 
+# stores each event into the PostgreSQL table. some of the column names had to be
+# changed due to being keywords in Ruby
 results.each do |result|
   event["template_version"] = result["template_version"]
   event["friendly_from"] = result["friendly_from"]

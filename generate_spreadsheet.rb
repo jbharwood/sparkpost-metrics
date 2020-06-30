@@ -13,6 +13,7 @@ past_time = current_time - (3600 * 168)
 formatted_current_time = current_time.iso8601
 formatted_past_time = past_time.iso8601
 
+# stores the dates for a week
 current_date = Date.today
 dates = []
 day_before = (current_date - 1)
@@ -23,6 +24,7 @@ while day_counter >= 0
   day_counter -= 1
 end
 
+# SparkPost API call
 simple_spark = SimpleSpark::Client.new(api_key: '712f2abc9cf6e9160f0a5820b8b9630ad6040c95')
 results = simple_spark.events.search(
   sending_domain: 'mail.allmedx.com',
@@ -35,6 +37,8 @@ results = simple_spark.events.search(
 event_keys = {}
 new_results =[]
 
+# stores each event into the new_results. some of the column names had to be
+# changed due to being keywords in Ruby. Also stores event keys in event_keys
 results.each do |result|
   event = {}
   event["template_version"] = result["template_version"]
@@ -65,18 +69,19 @@ results.each do |result|
   new_results << event
 end
 
+# first_row is used for header columns in the spreadsheet
 first_row = true
 
 p = Axlsx::Package.new
 wb = p.workbook
 
 p.workbook do |wb|
-  # define your regular styles
   styles = wb.styles
   title = styles.add_style(:sz => 15, :b => true, :u => true)
   default = styles.add_style(:border => Axlsx::STYLE_THIN_BORDER)
   header = styles.add_style(:bg_color => '66', :fg_color => 'FF', :b => true)
 
+# Data sheet with unqiue email recipients query in it
   wb.add_worksheet(:name => "Data") do |sheet|
     sheet.add_row event_keys.keys, :style => header
     new_results.each do |e|
@@ -99,6 +104,7 @@ p.workbook do |wb|
     end
   end
 
+# empty Summary sheet is created
   wb.add_worksheet(:name => 'Summary') do |sheet|
     sheet.add_row ['Subject', 'list_unsubscribe',	'spam_complaint',	'Grand Total'], :style => header
     8.times do |n|
@@ -111,6 +117,7 @@ p.workbook do |wb|
     sheet.add_row ['email',	'date',	'complaints/unsubscribes'], :style => header
   end
 
+# Subject Count sheet is created with a pivot table
   wb.add_worksheet(:name => 'Subject Count') do |sheet|
     table_range = 'A1:U1000'
     data_range = "A1:U9999"
@@ -122,6 +129,7 @@ p.workbook do |wb|
     end
   end
 
+# Sheets for each day are created with 2 pivot tables
   wb.add_worksheet(:name => dates[0]) do |sheet|
     table_range = 'A1:U24'
     data_range = "A1:U9999"
@@ -141,4 +149,5 @@ p.workbook do |wb|
 
 end
 
+# creates Excel spreadsheet in Spreadsheets folder
 p.serialize("./Spreadsheets/Unsubscribes and Complaints Events #{dates.first}-20 - #{dates.last}-20.xlsx")
