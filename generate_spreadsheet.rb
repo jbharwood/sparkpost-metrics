@@ -112,12 +112,6 @@ p.workbook do |wb|
   end
 
   wb.add_worksheet(:name => 'Subject Count') do |sheet|
-    # pivot_table = Axlsx::PivotTable.new 'A1:U9999', "A1:U9999", wb.worksheets[0]
-    # pivot_table.rows = ['subject']
-    # pivot_table.columns = ['event_type']
-    # pivot_table.data = ['event_type']
-    # sheet.pivot_tables << pivot_table
-
     table_range = 'A1:U1000'
     data_range = "A1:U9999"
     sheet.add_pivot_table(table_range, data_range) do |pivot_table|
@@ -147,81 +141,4 @@ p.workbook do |wb|
 
 end
 
-# dates.each do |date|
-#   wb.add_worksheet(:name => date) do |sheet|
-#     table_range = 'A1:U4'
-#     data_range = "A1:U9999"
-#     sheet.add_pivot_table(table_range, data_range) do |pivot_table|
-#        pivot_table.data_sheet = wb.worksheets[0]
-#        pivot_table.rows = ['raw_rcpt_to']
-#        pivot_table.columns = ['timestamp']
-#        pivot_table.data = ['timestamp']
-#     end
-#     sheet.add_pivot_table('A5:U1000', data_range) do |pivot_table|
-#        pivot_table.data_sheet = wb.worksheets[0]
-#        pivot_table.rows = ['raw_rcpt_to']
-#        pivot_table.columns = ['subject']
-#        pivot_table.data = ['subject']
-#     end
-#   end
-# end
-
 p.serialize("./Spreadsheets/Unsubscribes and Complaints Events #{dates.first}-20 - #{dates.last}-20.xlsx")
-# p.serialize("./Spreadsheets/railstest.xlsx")
-
-# sheet.add_row(event["template_version"], event["friendly_from"], event["subject"], event["ip_pool"], event["sending_domain"], event["rcpt_tags", event["event_type"], event["raw_rcpt_to"], event["msg_from"], event["rcpt_to"], event["transmission_id"], event["rcpt_meta"] event["message_id"], event["recipient_domain"], event["event_id"], event["routing_domain"], event["sending_ip"], event["template_id"], event["injection_time"], event["msg_size"], event["timestamp"])
-
-# event["template_version"],
-# event["friendly_from"],
-# event["subject"],
-# event["ip_pool"],
-# event["sending_domain"],
-# event["rcpt_tags",
-# event["event_type"],
-# event["raw_rcpt_to"],
-# event["msg_from"],
-# event["rcpt_to"],
-# event["transmission_id"],
-# event["rcpt_meta"],
-# event["message_id"],
-# event["recipient_domain"],
-# event["event_id"],
-# event["routing_domain"],
-# event["sending_ip"],
-# event["template_id"],
-# event["injection_time"],
-# event["msg_size"],
-# event["timestamp"]
-
-
-#
-# template_version:integer friendly_from:string subject:string ip_pool:string sending_domain:string rcpt_tags:array type:string raw_rcpt_to:string msg_from:string rcpt_to:string report_to:string transmission_id:integer fbtype:string rcpt_meta:hstore message_id:string recipient_domain:string report_by:string:string event_id:integer routing_domain:string sending_ip:float template_id:string
-# delv_method:string injection_time:timestamp msg_size:integer timestamp:timestamp formattedDate:datetime
-#
-# template_version
-# friendly_from
-# subject
-# ip_pool
-# sending_domain
-# rcpt_tags
-# type
-# raw_rcpt_to
-# msg_from
-# rcpt_to
-# report_to
-# transmission_id
-# fbtype
-# rcpt_meta
-# message_id
-# recipient_domain
-# report_by
-# event_id
-# routing_domain
-# sending_ip
-# template_id
-# delv_method
-# customer_id
-# injection_time
-# msg_size
-# timestamp
-# formattedDate
