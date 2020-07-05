@@ -25,7 +25,7 @@ while day_counter >= 0
 end
 
 # SparkPost API call
-simple_spark = SimpleSpark::Client.new(api_key: '712f2abc9cf6e9160f0a5820b8b9630ad6040c95')
+simple_spark = SimpleSpark::Client.new(api_key: 'key')
 results = simple_spark.events.search(
   sending_domain: 'mail.allmedx.com',
   from: formatted_past_time,
